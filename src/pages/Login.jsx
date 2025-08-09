@@ -84,11 +84,13 @@ const Login = () => {
             <input type='password' id='password' className='form-control' placeholder='**********' required onChange={(e) => setPassword(e.target.value)} value={password} />
           </div>
 
-          <div className="d-flex justify-content-end mb-3">
-            <Link to="/reset-password" className='text-decoration-none'>
-              Forgot password?
-            </Link>
-          </div>
+         {!isCreateAccount && (
+  <div className="d-flex justify-content-end mb-3">
+    <Link to="/reset-password" className='text-decoration-none'>
+      Forgot password?
+    </Link>
+  </div>
+)}
 
           <button type='submit' className='btn btn-primary w-100' disabled={loading}>
             {loading ? "Loading..." : isCreateAccount ? "Sign Up" : "Login"}
